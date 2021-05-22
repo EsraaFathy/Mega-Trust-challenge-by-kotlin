@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Mega Trust challenge</string>
+    <string name="welcome_to_mega_trust_jobs">Welcome to Mega Trust Jobs</string>
+    <string name="start">Start</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
