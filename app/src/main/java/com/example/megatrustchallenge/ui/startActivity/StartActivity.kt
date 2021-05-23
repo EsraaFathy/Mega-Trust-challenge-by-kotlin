@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import com.example.megatrustchallenge.R
 import com.example.megatrustchallenge.databinding.ActivityStartBinding
 import com.example.megatrustchallenge.ui.jobScreen.JobsScreen
