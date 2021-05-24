@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MegaTrustChallenge">
-        <activity android:name=".ui.jobScreen.JobsScreen" />
+        <activity android:name=".ui.JobsScreen" />
         <activity
             android:name=".ui.startActivity.StartActivity"
             android:label="@string/title_activity_main2">

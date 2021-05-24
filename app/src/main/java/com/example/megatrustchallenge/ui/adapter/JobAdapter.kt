@@ -11,8 +11,14 @@ import com.example.megatrustchallenge.R
 import com.example.megatrustchallenge.dataLayer.model.JobsItem
 import org.intellij.lang.annotations.JdkConstants
 
-class JobAdapter(var jobList: List<JobsItem>) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
-
+class JobAdapter( jobList: List<JobsItem>) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
+    var jobList: List<JobsItem> = ArrayList()
+    set(value) {
+        field = value
+    }
+    init {
+        this.jobList = jobList
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobAdapter.ViewHolder {
         val binding = LayoutInflater.from(parent.context).
@@ -36,12 +42,12 @@ class JobAdapter(var jobList: List<JobsItem>) : RecyclerView.Adapter<JobAdapter.
         private val jobTitle = itemView.findViewById<TextView>(R.id.jobTitle)
         fun binding(jobsItem: JobsItem, position: Int){
             Glide.with(companyLogo)
-                    .load(jobsItem.company_logo)
+                    .load(jobsItem.company_logo?:"")
                     .fitCenter()
                     .placeholder(R.drawable.ic_loading)
                     .into(companyLogo)
-            companyName.text = jobsItem.company
-            jobTitle.text = jobsItem.title
+            companyName.text = jobsItem.company?:"Company name is unknown"
+            jobTitle.text = jobsItem.title?:"Job Title name is unknown"
         }
     }
 

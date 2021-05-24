@@ -6,12 +6,12 @@
     app:startDestination="@id/jobsFragments2">
     <fragment
         android:id="@+id/jobsFragments2"
-        android:name="com.example.megatrustchallenge.ui.jobScreen.JobsFragments"
+        android:name="com.example.megatrustchallenge.ui.jobFragment.JobsFragments"
         android:label="fragment_jobs_fragments"
         tools:layout="@layout/fragment_jobs_fragments" />
     <fragment
         android:id="@+id/favouriteFragment3"
-        android:name="com.example.megatrustchallenge.ui.favourite.favouriteFragment"
+        android:name="com.example.megatrustchallenge.ui.favourite.FavouriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.megatrustchallenge.ui.jobScreen
+package com.example.megatrustchallenge.ui.jobFragment
 
 import android.content.Context
 import android.net.ConnectivityManager
