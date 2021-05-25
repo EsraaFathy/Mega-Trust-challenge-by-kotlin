@@ -12,11 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MegaTrustChallenge">
-        <activity android:name=".ui.details.JobDetailsActivity"></activity>
+        <activity android:name=".ui.details.JobDetailsActivity"/>
         <activity android:name=".ui.JobsScreen" />
         <activity
             android:name=".ui.startActivity.StartActivity"
-            android:label="@string/Start_Activity">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

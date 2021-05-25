@@ -25,10 +25,7 @@ class JobsFragments : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentJobsFragmentsBinding.inflate(inflater, container, false)
-        jobsViewModel = ViewModelProvider(
-                this,
-                ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-        )[JobsViewModel::class.java]
+        jobsViewModel = ViewModelProvider(requireActivity()).get(JobsViewModel::class.java)
 
         val lay = LinearLayoutManager(activity)
 
@@ -59,6 +56,9 @@ class JobsFragments : Fragment() {
 
 
         jobsViewModel.getJobsData(requireContext())
+
+
+
         jobsViewModel.offline.observe(requireActivity()) {
             if (it) {
                 binding.animationOffLine.visibility = View.VISIBLE
@@ -90,7 +90,7 @@ class JobsFragments : Fragment() {
 
         jobsViewModel.favouriteClick.observe(requireActivity()){
             Log.d("TAG","favourite $it")
-
+            jobsViewModel.saveTORoom(it)
         }
 
     }

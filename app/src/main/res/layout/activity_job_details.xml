@@ -22,24 +22,35 @@
                 android:id="@+id/company_logo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/logo"
                 android:src="@mipmap/ic_launcher"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/logo" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/company_name"
                 style="@style/text_style"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lines="2"
                 android:padding="10dp"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/company_logo" />
+
+            <ImageView
+                android:background="@color/black"
+                android:id="@+id/favourite"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_star_border_24"
+                app:layout_constraintBottom_toBottomOf="@id/company_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/company_name"
+                android:contentDescription="@string/favorite" />
 
             <TextView
                 android:id="@+id/jobTitle"
@@ -73,11 +84,11 @@
                 style="@style/text_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="textUri"
                 android:padding="10dp"
                 android:text="@string/app_name"
                 android:textColor="#3196F1"
                 android:textSize="12sp"
-                android:inputType="textUri"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/company_name"
                 app:layout_constraintTop_toBottomOf="@id/jobType"
@@ -89,11 +100,11 @@
                 style="@style/text_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="textUri"
                 android:padding="10dp"
                 android:text="@string/app_name"
                 android:textColor="#3196F1"
                 android:textSize="12sp"
-                android:inputType="textUri"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/company_name"
                 app:layout_constraintTop_toBottomOf="@id/jobURL"
@@ -105,17 +116,17 @@
                 style="@style/text_style"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
-                android:padding="10dp"
+                android:inputType="textUri"
                 android:lines="10"
+                android:padding="10dp"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                android:inputType="textUri"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/company_name"
                 app:layout_constraintTop_toBottomOf="@id/companyURL"
-                tools:ignore="TextViewEdits"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                tools:ignore="TextViewEdits" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

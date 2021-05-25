@@ -1,5 +1,6 @@
 package com.example.megatrustchallenge.ui.adapter
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,49 +12,48 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.megatrustchallenge.R
 import com.example.megatrustchallenge.dataLayer.model.JobsItem
-import com.example.megatrustchallenge.ui.jobFragment.JobsViewModel
-import org.intellij.lang.annotations.JdkConstants
+import com.example.megatrustchallenge.ui.favourite.FavouriteViewModel
 
-class JobAdapter( var jobsViewModel : JobsViewModel , jobList: List<JobsItem>) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
+class favAdapter(var favouriteViewModel: FavouriteViewModel , favList: List<JobsItem>) : RecyclerView.Adapter<favAdapter.ViewHolder>() {
 //    var jobsViewModel: JobsViewModel = jobsViewModel
 
-    var jobList: List<JobsItem> = ArrayList()
+    var favList: List<JobsItem> = ArrayList()
     set(value) {
         field = value
     }
     init {
-        this.jobList = jobList
+        this.favList = favList
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): favAdapter.ViewHolder {
         val binding = LayoutInflater.from(parent.context).
         inflate(R.layout.job_item, parent, false)
 
         return ViewHolder(binding)    }
 
-    override fun onBindViewHolder(holder: JobAdapter.ViewHolder, position: Int) {
-        holder.binding(jobList[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.binding(favList[position])
         holder.favourite.setOnClickListener {
             if (it.id == R.id.favourite){
-                jobsViewModel.favouriteClick.value = jobList[position]
+                favouriteViewModel.favouriteClick.value = favList[position]
                 Log.d("TAG","Favourite")
             }
         }
         holder.itemView.setOnClickListener {
-                jobsViewModel.itemClick.value = jobList[position]
-                Log.d("TAG", "Item")
+           favouriteViewModel.itemClick.value = favList[position]
+            Log.d("TAG", "Item")
         }
     }
 
     override fun getItemCount(): Int {
-        return jobList.count()
+        return favList.count()
     }
 
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val companyLogo = itemView.findViewById<ImageView>(R.id.company_logo)
-         val favourite = itemView.findViewById<ImageButton>(R.id.favourite)
+        val favourite = itemView.findViewById<ImageButton>(R.id.favourite)
         private val companyName = itemView.findViewById<TextView>(R.id.company_name)
         private val jobTitle = itemView.findViewById<TextView>(R.id.jobTitle)
         fun binding(jobsItem: JobsItem){
@@ -64,6 +64,7 @@ class JobAdapter( var jobsViewModel : JobsViewModel , jobList: List<JobsItem>) :
                     .into(companyLogo)
             companyName.text = jobsItem.company?:"Company name is unknown"
             jobTitle.text = jobsItem.title?:"Job Title name is unknown"
+            favourite.setBackgroundColor(Color.YELLOW)
 
         }
     }
