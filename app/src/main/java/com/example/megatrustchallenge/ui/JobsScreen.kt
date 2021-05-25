@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.megatrustchallenge.R
 import com.example.megatrustchallenge.databinding.ActivityJobsScreenBinding
-import com.example.megatrustchallenge.ui.favourite.FavouriteFragment
+import com.example.megatrustchallenge.ui.favourite.FavpuriteFragment
 import com.example.megatrustchallenge.ui.jobFragment.JobsFragments
 
 class JobsScreen : AppCompatActivity() {
@@ -25,7 +25,7 @@ class JobsScreen : AppCompatActivity() {
                             .commit()
                 }
                 else -> {
-                    fragment = FavouriteFragment()
+                    fragment = FavpuriteFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.fragmentHost, fragment)
                             .commit()
                 }

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darkBlue"
+        android:padding="10dp"
+        tools:context=".ui.details.JobDetailsActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/company_logo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/logo" />
+
+            <TextView
+                android:id="@+id/company_name"
+                style="@style/text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="2"
+                android:padding="10dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/company_logo" />
+
+            <TextView
+                android:id="@+id/jobTitle"
+                style="@style/text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/company_name"
+                app:layout_constraintTop_toBottomOf="@id/company_name" />
+
+            <TextView
+                android:id="@+id/jobType"
+                style="@style/text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/company_name"
+                app:layout_constraintTop_toBottomOf="@id/jobTitle" />
+
+
+            <TextView
+                android:id="@+id/jobURL"
+                style="@style/text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/app_name"
+                android:textColor="#3196F1"
+                android:textSize="12sp"
+                android:inputType="textUri"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/company_name"
+                app:layout_constraintTop_toBottomOf="@id/jobType"
+                tools:ignore="TextViewEdits" />
+
+
+            <TextView
+                android:id="@+id/companyURL"
+                style="@style/text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/app_name"
+                android:textColor="#3196F1"
+                android:textSize="12sp"
+                android:inputType="textUri"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/company_name"
+                app:layout_constraintTop_toBottomOf="@id/jobURL"
+                tools:ignore="TextViewEdits" />
+
+
+            <TextView
+                android:id="@+id/jobDescription"
+                style="@style/text_style"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                android:padding="10dp"
+                android:lines="10"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:inputType="textUri"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/company_name"
+                app:layout_constraintTop_toBottomOf="@id/companyURL"
+                tools:ignore="TextViewEdits"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

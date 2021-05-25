@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="@id/company_name"
             app:layout_constraintTop_toBottomOf="@id/company_name" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/favourite"
             android:layout_width="50dp"
             android:layout_height="50dp"

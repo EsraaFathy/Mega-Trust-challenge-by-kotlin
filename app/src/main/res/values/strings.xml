@@ -2,11 +2,7 @@
     <string name="app_name">Mega Trust challenge</string>
     <string name="welcome_to_mega_trust_jobs">Welcome to Mega Trust Jobs</string>
     <string name="start">Start</string>
-    <string name="title_activity_main2">MainActivity2</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
+    <string name="Start_Activity">Start Activity</string>
     <string name="hello_world">Hello Square World!</string>
     <string name="logo">Logo</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -14,4 +10,5 @@
     <string name="favourite">Favourite</string>
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
+    <string name="not_found">not found</string>
 </resources>

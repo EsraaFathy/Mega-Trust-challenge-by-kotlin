@@ -15,7 +15,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentHost"
-            android:name="com.example.megatrustchallenge.ui.jobScreen.JobsFragments"
+            android:name="com.example.megatrustchallenge.ui.jobFragment.JobsFragments"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:defaultNavHost="true"

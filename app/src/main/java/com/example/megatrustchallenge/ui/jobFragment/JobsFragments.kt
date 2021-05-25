@@ -1,5 +1,6 @@
 package com.example.megatrustchallenge.ui.jobFragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.megatrustchallenge.R
 import com.example.megatrustchallenge.dataLayer.model.JobsItem
 import com.example.megatrustchallenge.databinding.FragmentJobsFragmentsBinding
 import com.example.megatrustchallenge.ui.adapter.JobAdapter
+import com.example.megatrustchallenge.ui.details.JobDetailsActivity
+import java.io.Serializable
 
 class JobsFragments : Fragment() {
     private lateinit var jobsViewModel: JobsViewModel
@@ -22,15 +25,27 @@ class JobsFragments : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentJobsFragmentsBinding.inflate(inflater, container, false)
-
         jobsViewModel = ViewModelProvider(
                 this,
                 ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
         )[JobsViewModel::class.java]
-        val lay: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+
+        val lay = LinearLayoutManager(activity)
+
         binding.jobsRecyclerView.layoutManager = lay
-        jobAdapter = JobAdapter(jobs)
+        jobAdapter = JobAdapter(jobsViewModel,jobs)
         binding.jobsRecyclerView.adapter = jobAdapter
+
+
+
+        binding.swapToRefresh.setColorSchemeResources(R.color.orange);
+
+        binding.swapToRefresh.setOnRefreshListener {
+            Log.d("Tag","Swaped")
+            jobsViewModel.progressBar.value = true
+            jobsViewModel.getJobsData(requireContext())
+            binding.swapToRefresh.isRefreshing = false
+        }
 
         return binding.root
     }
@@ -54,17 +69,29 @@ class JobsFragments : Fragment() {
         jobsViewModel.progressBar.observe(requireActivity()) {
             if (it == false) {
                 binding.progressBar.visibility = View.GONE
+            }else{
+                binding.progressBar.visibility = View.VISIBLE
             }
         }
 
         jobsViewModel.jobsData.observe(requireActivity()){
-            jobAdapter = JobAdapter(jobs)
-            binding.jobsRecyclerView.adapter=jobAdapter
              jobAdapter.jobList = it
                 jobAdapter.notifyDataSetChanged()
                 Log.d("TAG",it.count().toString())
         }
 
+
+        jobsViewModel.itemClick.observe(requireActivity()){
+            val intent = Intent(activity, JobDetailsActivity::class.java)
+            intent.putExtra("extra_object", it as Serializable)
+            startActivity(intent)
+        }
+
+
+        jobsViewModel.favouriteClick.observe(requireActivity()){
+            Log.d("TAG","favourite $it")
+
+        }
 
     }
 

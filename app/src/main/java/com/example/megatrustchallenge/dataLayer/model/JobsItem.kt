@@ -1,5 +1,7 @@
 package com.example.megatrustchallenge.dataLayer.model
 
+import java.io.Serializable
+
 data class JobsItem(
     val company: String?,
     val company_logo: String?,
@@ -12,4 +14,4 @@ data class JobsItem(
     val title: String?,
     val type: String?,
     val url: String?
-)
+) : Serializable
