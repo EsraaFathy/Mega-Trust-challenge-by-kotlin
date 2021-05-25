@@ -30,8 +30,10 @@ class JobDetailsActivity : AppCompatActivity() {
         val jobsItem = intent.extras?.get("extra_object") as JobsItem
 
         detailsViewModel.getFavourite(jobsItem.id).observe(this){
-            binding.favourite.setBackgroundColor(Color.YELLOW)
-            color=true
+            if (it!=null && it.id==jobsItem.id) {
+                binding.favourite.setBackgroundColor(Color.YELLOW)
+                color = true
+            }
         }
         Glide.with(binding.companyLogo)
                 .load(jobsItem.company_logo?:"")

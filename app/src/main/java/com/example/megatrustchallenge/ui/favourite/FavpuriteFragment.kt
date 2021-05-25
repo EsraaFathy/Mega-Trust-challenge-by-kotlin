@@ -45,7 +45,7 @@ class FavpuriteFragment : Fragment() {
 
 
         favViewModel.itemClick.observe(requireActivity()){
-            val intent = Intent(activity, JobDetailsActivity::class.java)
+            val intent = Intent(requireContext(), JobDetailsActivity::class.java)
             intent.putExtra("extra_object", it as Serializable)
             startActivity(intent)
         }
